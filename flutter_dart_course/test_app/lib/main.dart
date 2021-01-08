@@ -5,9 +5,23 @@ void main() {
   runApp(MyApp()); //equivalent to new MyApp()
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
+  var questionIndex = 0;
+
   void answerQuestion() {
-    print('Answer choosen');
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
+
+    print(questionIndex);
+    // print('Answer choosen');
   }
 
   @override
@@ -22,7 +36,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(title: Text('My First App')),
         body: Column(
           children: <Widget>[
-            Text('Questions ?'),
+            Text(questions[questionIndex]),
             RaisedButton(child: Text('Answer 1'), onPressed: answerQuestion),
             RaisedButton(child: Text('Answer 2'), onPressed: answerQuestion),
             RaisedButton(child: Text('Answer 3'), onPressed: answerQuestion),
