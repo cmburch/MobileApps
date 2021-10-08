@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/answer.dart';
-
-import './question.dart';
-import './answer.dart';
+import 'package:flutter_demo/quiz.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,7 +24,7 @@ class MyAppState extends State<MyApp> {
     },
     {
       'questionText': 'Who\'s your favorite instructor?',
-      'answers': ['Max', 'Max', 'Max', 'Max'],
+      'answers': ['Myself', 'Myself', 'Myself', 'Myself'],
     },
   ];
 
@@ -47,15 +44,11 @@ class MyAppState extends State<MyApp> {
           title: Text('My first App'),
         ),
         body: !isQuestionListEmpty
-            ? Column(children: [
-                Question(
-                  questions[questionIndex]['questionText'],
-                ),
-                ...(questions[questionIndex]['answers'] as List<String>)
-                    .map((answer) {
-                  return Answer(answerQuestion, answer);
-                }).toList()
-              ])
+            ? Quiz(
+                questions: questions,
+                questionIndex: questionIndex,
+                answerQuestion: answerQuestion,
+              )
             : Center(
                 child: Text("You have completed the quiz!"),
               ),
