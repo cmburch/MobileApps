@@ -15,6 +15,22 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
   int questionIndex = 0;
+
+  var questions = [
+    {
+      'questionText': 'What\'s your favorite color?',
+      'answers': ['Black', 'Red', 'Green', 'White'],
+    },
+    {
+      'questionText': 'What\'s your favorite animal?',
+      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+    },
+    {
+      'questionText': 'Who\'s your favorite instructor?',
+      'answers': ['Max', 'Max', 'Max', 'Max'],
+    },
+  ];
+
   void answerQuestion() {
     setState(() {
       questionIndex = questionIndex + 1;
@@ -23,10 +39,6 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
-      "what is your favorite color",
-      "what is your favorite animal"
-    ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -34,24 +46,12 @@ class MyAppState extends State<MyApp> {
         ),
         body: Column(children: [
           Question(
-            questions[questionIndex],
+            questions[questionIndex]['questionText'],
           ),
-          Answer(
-            answerQuestion,
-            "Answer 0",
-          ),
-          RaisedButton(
-            child: Text("Answer 1"),
-            onPressed: answerQuestion,
-          ),
-          RaisedButton(
-            child: Text("Answer 2"),
-            onPressed: () => print("Answer question 2"),
-          ),
-          RaisedButton(
-            child: Text("Answer 3"),
-            onPressed: () => print("Answer question 3"),
-          ),
+            ...(questions[questionIndex]['answers'] as List<String>)
+                .map((answer) {
+              return Answer(answerQuestion, answer);
+            }).toList()
         ]),
       ),
     );
