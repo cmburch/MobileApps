@@ -39,20 +39,26 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    bool isQuestionListEmpty = questionIndex >= questions.length;
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text('My first App'),
         ),
-        body: Column(children: [
-          Question(
-            questions[questionIndex]['questionText'],
-          ),
-            ...(questions[questionIndex]['answers'] as List<String>)
-                .map((answer) {
-              return Answer(answerQuestion, answer);
-            }).toList()
-        ]),
+        body: !isQuestionListEmpty
+            ? Column(children: [
+                Question(
+                  questions[questionIndex]['questionText'],
+                ),
+                ...(questions[questionIndex]['answers'] as List<String>)
+                    .map((answer) {
+                  return Answer(answerQuestion, answer);
+                }).toList()
+              ])
+            : Center(
+                child: Text("You have completed the quiz!"),
+              ),
       ),
     );
   }
