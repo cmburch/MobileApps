@@ -1,0 +1,10 @@
+#COMMAND LINE FLUTTER
+
+#GET LIST OF INSTALLED PHONE EMULATORS
+~/Library/Android/sdk/tools/emulator -list-avds
+
+# OPEN PHONE EMULATOR
+~/Library/Android/sdk/emulator/emulator @Nexus_6_API_30
+
+#CREATE MULTIPLE FILES IS A DIRECTORY
+touch lib/{quiz,answer,question}.dart
