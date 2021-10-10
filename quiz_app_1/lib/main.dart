@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app_1/quiz.dart';
 
 void main() => runApp(const QuizApp());
 
@@ -13,8 +14,8 @@ class QuizApp extends StatefulWidget {
 
 class QuizAppState extends State<QuizApp> {
   static const String _appTitle = "Quiz App";
-  final int _questionIndex = 0;
-  final int _score = 0;
+  int _questionIndex = 0;
+  int _score = 0;
   final _questions = const [
     {
       'questionText': 'What\'s your favorite color?',
@@ -45,6 +46,13 @@ class QuizAppState extends State<QuizApp> {
     },
   ];
 
+  void _answerQuestion(int score) {
+    setState(() {
+      _questionIndex += 1;
+      _score += score;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final bool _isQuizFinished = _questionIndex >= _questions.length;
@@ -57,6 +65,11 @@ class QuizAppState extends State<QuizApp> {
             width: double.infinity,
             child: const Text(_appTitle),
           ),
+        ),
+        body: Quiz(
+          answerQuestion: _answerQuestion,
+          questions: _questions,
+          questionIndex: _questionIndex,
         ),
       ),
     );
