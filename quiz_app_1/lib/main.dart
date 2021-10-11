@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app_1/quiz.dart';
+import 'package:quiz_app_1/result.dart';
+
 
 void main() => runApp(const QuizApp());
 
@@ -66,11 +68,11 @@ class QuizAppState extends State<QuizApp> {
             child: const Text(_appTitle),
           ),
         ),
-        body: Quiz(
+        body: !_isQuizFinished ? Quiz(
           answerQuestion: _answerQuestion,
           questions: _questions,
           questionIndex: _questionIndex,
-        ),
+        ): Result(_score),
       ),
     );
   }
