@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
   final int score;
+  final VoidCallback resetQuiz;
 
-  Result(this.score);
+  Result(this.score,this.resetQuiz);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class Result extends StatelessWidget {
               primary: Colors.blue,
               onPrimary: Colors.white,
             ),
-            onPressed: null,
+            onPressed: resetQuiz,
             child: const Text(
               "Resart Quiz!",
             ),

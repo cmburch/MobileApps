@@ -55,6 +55,13 @@ class QuizAppState extends State<QuizApp> {
     });
   }
 
+  void _resetQuiz(){
+    setState(() {
+      _questionIndex = 0;
+      _score = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final bool _isQuizFinished = _questionIndex >= _questions.length;
@@ -72,7 +79,7 @@ class QuizAppState extends State<QuizApp> {
           answerQuestion: _answerQuestion,
           questions: _questions,
           questionIndex: _questionIndex,
-        ): Result(_score),
+        ): Result(_score,_resetQuiz),
       ),
     );
   }
