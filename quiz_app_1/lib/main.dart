@@ -128,6 +128,20 @@ class QuizAppState extends State<QuizApp> {
     },
   ];
   static const _appTitle = "Quiz App";
-  final int _questionIndex = 0;
-  final int _score = 0
+  int _questionIndex = 0;
+  int _score = 0
+
+  void _answerQuestion (int score) {
+    setState(() {
+      _questionIndex += 1;
+      _score += score;
+    });
+  }
+
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _score = 0;
+    });
+  }
 }
