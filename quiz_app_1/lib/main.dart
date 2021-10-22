@@ -129,9 +129,9 @@ class QuizAppState extends State<QuizApp> {
   ];
   static const _appTitle = "Quiz App";
   int _questionIndex = 0;
-  int _score = 0
+  int _score = 0;
 
-  void _answerQuestion (int score) {
+  void _answerQuestion(int score) {
     setState(() {
       _questionIndex += 1;
       _score += score;
@@ -143,5 +143,20 @@ class QuizAppState extends State<QuizApp> {
       _questionIndex = 0;
       _score = 0;
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Container(
+            alignment: Alignment.center,
+            width: double.infinity,
+            child: const Text(_appTitle),
+          ),
+        ),
+      ),
+    );
   }
 }
