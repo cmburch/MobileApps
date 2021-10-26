@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app_1/answer.dart';
 import 'package:quiz_app_1/question.dart';
 import 'package:quiz_app_1/quiz.dart';
 import 'package:quiz_app_1/result.dart';
@@ -161,6 +162,10 @@ class QuizAppState extends State<QuizApp> {
           children: [
             const Question(
               "testing",
+            ),
+             Answer(
+              "answerText",
+              ()=> _answerQuestion(5),
             ),
           ],
         ),
