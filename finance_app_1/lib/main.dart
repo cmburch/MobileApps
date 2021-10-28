@@ -41,7 +41,7 @@ class MyHomePage extends StatelessWidget {
                 elevation:5,
                 child: const Text("!Chart placeholder"),
               ),
-            )
+            ),
           ],
         ),
       ),

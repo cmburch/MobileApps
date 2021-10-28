@@ -6,3 +6,6 @@ touch lib/widgets/{user_transaction.dart,new_transaction.dart,transaction_list.d
 
 //vscode shortcuts
 command + b //toggle explorer sidebar
+
+//create stateful widget snippet
+in vscode type st then hitting tab create stateful widget snippet
