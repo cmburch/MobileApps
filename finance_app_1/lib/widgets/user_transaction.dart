@@ -1,6 +1,8 @@
 import 'package:finance_app_1/models/transaction.dart';
 import 'package:flutter/material.dart';
 
+import 'new_transaction.dart';
+
 class UserTransactions extends StatefulWidget {
   const UserTransactions({Key? key}) : super(key: key);
 
@@ -24,7 +26,7 @@ class _UserTransactionsState extends State<UserTransactions> {
     ),
   ];
 
-  void _addUserTransactions(String txTitle,double txAmount) {
+  void _addUserTransactions(String txTitle, double txAmount) {
     final newTx = Transaction(
       title: txTitle,
       amount: txAmount,
@@ -40,7 +42,9 @@ class _UserTransactionsState extends State<UserTransactions> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [],
+      children: [
+        NewTransaction(_addUserTransactions),
+      ],
     );
   }
 }
