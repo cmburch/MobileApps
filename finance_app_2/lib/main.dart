@@ -1,3 +1,4 @@
+import 'package:finance_app_2/widgets/user_transaction.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -41,7 +42,8 @@ class MyHomePage extends StatelessWidget {
                 elevation: 5,
                 child: const Text('Finance Chart'),
               ),
-            )
+            ),
+            UserTransaction()
           ],
         ),
       ),
