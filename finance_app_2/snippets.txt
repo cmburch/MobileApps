@@ -8,5 +8,8 @@ touch lib/models/transaction.dart
 //vscode shortcuts
 command + b //toggle explorer sidebar
 
+//update pubspec.yaml
+flutter pub get 
+
 //create stateful widget snippet
 in vscode type st then hitting tab create stateful widget snippet
