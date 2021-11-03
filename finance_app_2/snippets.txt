@@ -1,0 +1,11 @@
+//create the start files from the command line
+touch lib/widgets/{user_transaction.dart,new_transaction.dart,transaction_list.dart}
+
+//start phone from command line
+~/Library/Android/sdk/emulator/emulator @Nexus_6_API_30
+
+//vscode shortcuts
+command + b //toggle explorer sidebar
+
+//create stateful widget snippet
+in vscode type st then hitting tab create stateful widget snippet
