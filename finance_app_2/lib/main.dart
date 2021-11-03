@@ -31,6 +31,20 @@ class MyHomePage extends StatelessWidget {
           child: const Text(_appTitle),
         ),
       ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              child: Card(
+                color: Colors.blue,
+                elevation: 5,
+                child: const Text('Finance Chart'),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
