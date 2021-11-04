@@ -31,6 +31,10 @@ class _UserTransactionState extends State<UserTransaction> {
         title: txTitle,
         amount: txAmount,
         date: DateTime.now());
+
+    setState(() {
+      _userTransactions.add(newTransaction);
+    });
   }
 
   @override
