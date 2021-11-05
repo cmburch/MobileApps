@@ -1,5 +1,9 @@
+import 'package:finance_app_2/widgets/new_transaction.dart';
+import 'package:finance_app_2/widgets/transaction_list.dart';
 import 'package:finance_app_2/widgets/user_transaction.dart';
 import 'package:flutter/material.dart';
+
+import 'models/transaction.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +30,32 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   static const String _appTitle = "Finance Mint";
+    final List<Transaction> _userTransactions = [
+    Transaction(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 69.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Weekly Groceries',
+      amount: 16.53,
+      date: DateTime.now(),
+    ),
+  ];
+
+  void _addTransaction(String txTitle, double txAmount) {
+    final newTransaction = Transaction(
+        id: DateTime.now().toString(),
+        title: txTitle,
+        amount: txAmount,
+        date: DateTime.now());
+
+    setState(() {
+      _userTransactions.add(newTransaction);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +72,14 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Container(
               width: double.infinity,
-              child: Card(
+              child: const Card(
                 color: Colors.blue,
                 elevation: 5,
-                child: const Text('Finance Chart'),
+                child: Text('Finance Chart'),
               ),
             ),
-            UserTransaction()
+            NewTransaction(_addTransaction),
+            TransactionList(_userTransactions)
           ],
         ),
       ),
