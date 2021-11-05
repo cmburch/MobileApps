@@ -1,5 +1,6 @@
 import 'package:finance_app_2/models/transaction.dart';
 import 'package:finance_app_2/widgets/new_transaction.dart';
+import 'package:finance_app_2/widgets/transaction_list.dart';
 import 'package:flutter/material.dart';
 
 class UserTransaction extends StatefulWidget {
@@ -42,6 +43,7 @@ class _UserTransactionState extends State<UserTransaction> {
     return Column(
       children: [
         NewTransaction(_addTransaction),
+        TransactionList(_userTransactions)
       ],
     );
   }
