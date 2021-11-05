@@ -1,6 +1,6 @@
 import 'package:finance_app_2/widgets/new_transaction.dart';
 import 'package:finance_app_2/widgets/transaction_list.dart';
-import 'package:finance_app_2/widgets/user_transaction.dart';
+// import 'package:finance_app_2/widgets/user_transaction.dart';
 import 'package:flutter/material.dart';
 
 import 'models/transaction.dart';
@@ -57,10 +57,29 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _startAddNewTransaction(BuildContext ctx) {
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {},
+          child: NewTransaction(_addTransaction),
+          behavior: HitTestBehavior.opaque,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () => _startAddNewTransaction(context),
+          )
+        ],
         title: Container(
           width: double.infinity,
           alignment: Alignment.center,
@@ -78,7 +97,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('Finance Chart'),
               ),
             ),
-            NewTransaction(_addTransaction),
             TransactionList(_userTransactions)
           ],
         ),
