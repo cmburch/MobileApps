@@ -25,12 +25,12 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
   @override
-  _MyHomePageState createState()=> _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   static const String _appTitle = "Finance Mint";
-    final List<Transaction> _userTransactions = [
+  final List<Transaction> _userTransactions = [
     Transaction(
       id: 't1',
       title: 'New Shoes',
@@ -77,7 +77,9 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
-            onPressed: () => _startAddNewTransaction(context),
+            onPressed: () {
+              _startAddNewTransaction(context);
+            },
           )
         ],
         title: Container(
