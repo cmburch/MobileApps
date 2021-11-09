@@ -15,9 +15,23 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Finance App',
-      home: MyHomePage(),
+      theme: ThemeData(          
+        fontFamily: 'Quicksand',
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.purple,
+          accentColor: Colors.amber
+        ).copyWith(secondary: Colors.amber),
+        textTheme: ThemeData.light().textTheme.copyWith(
+          headline6: const TextStyle(
+            fontFamily: 'OpenSans',
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+            ),
+        ),
+      ),
+      home: const MyHomePage(),
     );
   }
 }
